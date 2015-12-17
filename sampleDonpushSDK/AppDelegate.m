@@ -24,7 +24,7 @@
     
     //app key 적용
     [[donpushSDK sharedManager] setKey:@"123123"];
-    [donpushSDK sharedManager].isLog = YES; // 로그출력
+//    [donpushSDK sharedManager].isLog = YES; // 로그출력
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
