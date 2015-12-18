@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-#define DONPUSH_SDK_VERSION @"0.9.3"
+#define DONPUSH_SDK_VERSION @"0.9.4"
 
 @interface donpushSDK : NSObject
 
@@ -48,7 +48,8 @@
 // 랭킹 리스트
 - (void)ranking_get:(void (^)(id JSON))completionBlock failBlock:(void (^)(id JSON))failBlock;
 
-@property (nonatomic, strong, readonly) NSString *email;  // 로그인한 돈푸시 이메일
+- (NSString*)getEmail;
+
 //@property (nonatomic, assign) BOOL isLog;      // 로그출력.
 
 @end

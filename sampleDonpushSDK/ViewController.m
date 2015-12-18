@@ -38,7 +38,7 @@
     [btnLogin setFrame:CGRectMake(20, 40, 220, 40)];
 
     if ([[donpushSDK sharedManager] isLogin]) {
-        [btnLogin setTitle:[NSString stringWithFormat:@"%@ 로그아웃",[donpushSDK sharedManager].email] forState:UIControlStateNormal];
+        [btnLogin setTitle:[NSString stringWithFormat:@"%@ 로그아웃",[[donpushSDK sharedManager] getEmail]] forState:UIControlStateNormal];
     }else{
         [btnLogin setTitle:@"돈푸시 로그인" forState:UIControlStateNormal];
     }
@@ -48,13 +48,13 @@
     
     
     UIButton *btnInfo = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btnInfo addTarget:self action:@selector(score_get:) forControlEvents:UIControlEventTouchUpInside];
+    [btnInfo addTarget:self action:@selector(user_info:) forControlEvents:UIControlEventTouchUpInside];
     [btnInfo setBackgroundColor:[UIColor lightGrayColor]];
-    [btnInfo setFrame:CGRectMake(250, 40, 80, 40)];
+    [btnInfo setFrame:CGRectMake(250, 40, 60, 40)];
     [btnInfo setTitle:@"회원정보" forState:UIControlStateNormal];
+    [btnInfo.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [btnInfo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:btnInfo];
-
     
     
     UIButton *btnRwd = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -106,19 +106,6 @@
     [btnPutScore setTitle:@"스코어 저장" forState:UIControlStateNormal];
     [btnPutScore setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:btnPutScore];
-    
-    
-}
-
-- (void)user_info:(id)sender {
-    [[donpushSDK sharedManager] user_info:^(id JSON) {
-        [log setText:[NSString stringWithFormat:@"%@",JSON]];
-        
-    } failBlock:^(id JSON) {
-        
-        [log setText:[NSString stringWithFormat:@"%@",JSON]];
-        
-    }];
 }
 
 - (void)login:(id)sender {
@@ -168,6 +155,14 @@
     
 }
 
+- (void)user_info:(id)sender {
+    [[donpushSDK sharedManager] user_info:^(id JSON) {
+        [log setText:[NSString stringWithFormat:@"%@",JSON]];
+    } failBlock:^(id JSON) {
+        [log setText:[NSString stringWithFormat:@"%@",JSON]];
+    }];
+}
+
 - (void)score_get:(id)sender {
     [[donpushSDK sharedManager] score_get:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
@@ -194,13 +189,6 @@
     } failBlock:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     }];
-
-        
-        
-        //
-//    } failBlock:^(id JSON) {
-//        [log setText:[NSString stringWithFormat:@"%@",JSON]];
-//    }];
 }
 
 

@@ -21,10 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
-    //app key 적용
-    [[donpushSDK sharedManager] setKey:@"123123"];
-//    [donpushSDK sharedManager].isLog = YES; // 로그출력
+//    //app key 적용
+    [[donpushSDK sharedManager] setKey:@"aaabbbcccdddeeff"];
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -59,12 +57,6 @@
 
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    
-    //    [SharedAppDelegate.window.rootViewController view]
-    //    UIWebView *webView;
-    //    UIWebView *webView = (UIWebView*)[[SharedAppDelegate.window.rootViewController view] viewWithTag:WEBVIEW_TAG];
-    NSLog(@"url:%@",url);
     return [[donpushSDK sharedManager] isLoginCallback:url];
-    
 }
 @end
