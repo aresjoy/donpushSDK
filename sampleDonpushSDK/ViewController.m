@@ -106,6 +106,15 @@
     [btnPutScore setTitle:@"스코어 저장" forState:UIControlStateNormal];
     [btnPutScore setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:btnPutScore];
+    
+    
+    UIButton *btnGetDpList = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btnGetDpList addTarget:self action:@selector(dp_list_get:) forControlEvents:UIControlEventTouchUpInside];
+    [btnGetDpList setBackgroundColor:[UIColor lightGrayColor]];
+    [btnGetDpList setFrame:CGRectMake(20, 300, 250, 40)];
+    [btnGetDpList setTitle:@"돈푸시 서버목록" forState:UIControlStateNormal];
+    [btnGetDpList setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:btnGetDpList];
 }
 
 - (void)login:(id)sender {
@@ -191,6 +200,13 @@
     }];
 }
 
+- (void)dp_list_get:(id)sender{
+    [[donpushSDK sharedManager] dp_list_get:^(id JSON) {
+        [log setText:[NSString stringWithFormat:@"%@",JSON]];
+    } failBlock:^(id JSON) {
+        [log setText:[NSString stringWithFormat:@"%@",JSON]];
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

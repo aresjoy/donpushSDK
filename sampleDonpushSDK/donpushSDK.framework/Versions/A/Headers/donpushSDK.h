@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-#define DONPUSH_SDK_VERSION @"0.9.4"
+#define DONPUSH_SDK_VERSION @"0.9.5"
 
 @interface donpushSDK : NSObject
 
@@ -38,6 +38,9 @@
 
 // 스코어 정보 가져오기
 - (void)score_get:(void (^)(id JSON))completionBlock failBlock:(void (^)(id JSON))failBlock;
+
+// 돈푸시 목록 가져오기
+- (void)dp_list_get:(void (^)(id JSON))completionBlock failBlock:(void (^)(id JSON))failBlock;
 
 // 내 점수 등록
 // sc : 현재 score
