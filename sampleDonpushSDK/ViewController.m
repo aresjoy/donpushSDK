@@ -135,7 +135,7 @@
             
             [log setText:[NSString stringWithFormat:@"%@",JSON]];
             
-        } failBlock:^(id JSON) {
+        } failBlock:^(id JSON, NSError *error) {
             
             [log setText:[NSString stringWithFormat:@"%@",JSON]];
             
@@ -158,7 +158,7 @@
 - (void)rwd:(id)sender {
     [[donpushSDK sharedManager] go_post:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
-    } failBlock:^(id JSON) {
+    } failBlock:^(id JSON, NSError *error) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     }];
     
@@ -167,7 +167,7 @@
 - (void)user_info:(id)sender {
     [[donpushSDK sharedManager] user_info:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
-    } failBlock:^(id JSON) {
+    } failBlock:^(id JSON, NSError *error) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     }];
 }
@@ -175,7 +175,7 @@
 - (void)score_get:(id)sender {
     [[donpushSDK sharedManager] score_get:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
-    } failBlock:^(id JSON) {
+    } failBlock:^(id JSON, NSError *error) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     }];
 }
@@ -184,7 +184,7 @@
 - (void)ranking_get:(id)sender {
     [[donpushSDK sharedManager] ranking_get:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
-    } failBlock:^(id JSON) {
+    } failBlock:^(id JSON, NSError *error) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     }];
 }
@@ -195,7 +195,7 @@
     
     [[donpushSDK sharedManager] score_put:sc.text mb:mb.text name:@"" completionBlock:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
-    } failBlock:^(id JSON) {
+    } failBlock:^(id JSON, NSError *error) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     }];
 }
@@ -203,7 +203,7 @@
 - (void)dp_list_get:(id)sender{
     [[donpushSDK sharedManager] dp_list_get:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
-    } failBlock:^(id JSON) {
+    } failBlock:^(id JSON, NSError *error) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     }];
 }
