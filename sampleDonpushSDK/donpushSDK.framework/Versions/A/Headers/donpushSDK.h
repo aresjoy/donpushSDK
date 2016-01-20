@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-#define DONPUSH_SDK_VERSION @"0.9.6"
+#define DONPUSH_SDK_VERSION @"0.9.7"
 
 @interface donpushSDK : NSObject
 
