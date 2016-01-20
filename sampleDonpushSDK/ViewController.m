@@ -14,7 +14,7 @@
 @interface ViewController (){
     UITextView *log;
     
-    UITextField *sc, *mb;
+    UITextField *sc, *mb, *nk;
 }
 
 @end
@@ -98,11 +98,16 @@
     [mb setText:@""];
     [self.view addSubview:mb];
 
+    nk = [[UITextField alloc] initWithFrame:CGRectMake(180, 250, 70, 40)];
+    [nk setBorderStyle:UITextBorderStyleRoundedRect];
+    [nk setPlaceholder:@"닉넴"];
+    [nk setText:@""];
+    [self.view addSubview:nk];
     
     UIButton *btnPutScore = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnPutScore addTarget:self action:@selector(score_put:) forControlEvents:UIControlEventTouchUpInside];
     [btnPutScore setBackgroundColor:[UIColor lightGrayColor]];
-    [btnPutScore setFrame:CGRectMake(180, 250, 100, 40)];
+    [btnPutScore setFrame:CGRectMake(260, 250, 100, 40)];
     [btnPutScore setTitle:@"스코어 저장" forState:UIControlStateNormal];
     [btnPutScore setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:btnPutScore];
@@ -193,7 +198,7 @@
     [sc resignFirstResponder];
     [mb resignFirstResponder];
     
-    [[donpushSDK sharedManager] score_put:sc.text mb:mb.text name:@"" completionBlock:^(id JSON) {
+    [[donpushSDK sharedManager] score_put:sc.text mb:mb.text name:nk.text completionBlock:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     } failBlock:^(id JSON, NSError *error) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
