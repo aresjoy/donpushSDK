@@ -186,6 +186,7 @@
 }
 
 
+
 - (void)ranking_get:(id)sender {
     [[donpushSDK sharedManager] ranking_get:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
