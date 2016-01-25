@@ -197,6 +197,7 @@
 - (void)score_put:(id)sender {
     [sc resignFirstResponder];
     [mb resignFirstResponder];
+    [nk resignFirstResponder];
     
     [[donpushSDK sharedManager] score_put:sc.text mb:mb.text name:nk.text completionBlock:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
@@ -221,6 +222,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [sc resignFirstResponder];
     [mb resignFirstResponder];
+    [nk resignFirstResponder];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
