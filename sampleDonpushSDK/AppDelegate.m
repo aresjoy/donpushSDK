@@ -22,7 +22,7 @@
     // Override point for customization after application launch.
     
 //    //app key 적용
-    [[donpushSDK sharedManager] setKey:@"aaaaabbbbccccdd"];
+    [[donpushSDK sharedManager] setKey:@"aaaaabbbbccccdd"]; //테스트 키
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
