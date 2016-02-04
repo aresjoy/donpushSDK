@@ -164,7 +164,7 @@
     [[donpushSDK sharedManager] go_post:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     } failBlock:^(id JSON, NSError *error) {
-        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error]];
+        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error.localizedDescription]];
     }];
     
 }
@@ -173,7 +173,7 @@
     [[donpushSDK sharedManager] user_info:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     } failBlock:^(id JSON, NSError *error) {
-        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error]];
+        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error.localizedDescription]];
     }];
 }
 
@@ -181,7 +181,7 @@
     [[donpushSDK sharedManager] score_get:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     } failBlock:^(id JSON, NSError *error) {
-        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error]];
+        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error.localizedDescription]];
     }];
 }
 
@@ -191,7 +191,7 @@
     [[donpushSDK sharedManager] ranking_get:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     } failBlock:^(id JSON, NSError *error) {
-        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error]];
+        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error.localizedDescription]];
     }];
 }
 
@@ -203,7 +203,7 @@
     [[donpushSDK sharedManager] score_put:sc.text mb:mb.text name:nk.text completionBlock:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     } failBlock:^(id JSON, NSError *error) {
-        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error]];
+        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error.localizedDescription]];
     }];
 }
 
@@ -211,7 +211,7 @@
     [[donpushSDK sharedManager] dp_list_get:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     } failBlock:^(id JSON, NSError *error) {
-        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error]];
+        [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error.localizedDescription]];
     }];
 }
 
