@@ -15,6 +15,8 @@
     UITextView *log;
     
     UITextField *sc, *mb, *nk;
+    
+    UIButton *btnLogin;
 }
 
 @end
@@ -32,7 +34,7 @@
     [self.view addSubview:log];
     
     
-    UIButton *btnLogin = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnLogin = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnLogin addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
     [btnLogin setBackgroundColor:[UIColor lightGrayColor]];
     [btnLogin setFrame:CGRectMake(20, 40, 220, 40)];
@@ -164,6 +166,9 @@
     [[donpushSDK sharedManager] go_post:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     } failBlock:^(id JSON, NSError *error) {
+        if ([[JSON objectForKey:@"error"] integerValue] == 1001) {
+            [btnLogin setTitle:@"돈푸시 로그인" forState:UIControlStateNormal];
+        }
         [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error.localizedDescription]];
     }];
     
@@ -173,6 +178,9 @@
     [[donpushSDK sharedManager] user_info:^(id JSON) {
         [log setText:[NSString stringWithFormat:@"%@",JSON]];
     } failBlock:^(id JSON, NSError *error) {
+        if ([[JSON objectForKey:@"error"] integerValue] == 1001) {
+            [btnLogin setTitle:@"돈푸시 로그인" forState:UIControlStateNormal];
+        }
         [log setText:[NSString stringWithFormat:@"%@\n%@",JSON,error.localizedDescription]];
     }];
 }
